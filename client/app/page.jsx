@@ -164,38 +164,77 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="right-content">
-          <div className="publication-card">
-            <h1>RECENT PUBLICATIONS</h1>
+        <div
+  className="right-content"
+  style={{
+    width: "100%",
+    maxWidth: "1200px",
+    margin: "40px auto",
+    padding: "20px",
+  }}
+>
+  <div
+    className="publication-card"
+    style={{
+      background: "#fff",
+      padding: "30px",
+      borderRadius: "12px",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+      width: "100%",
+    }}
+  >
+    <h1
+      style={{
+        fontSize: "42px",
+        fontWeight: "700",
+        marginBottom: "25px",
+      }}
+    >
+      RECENT PUBLICATIONS
+    </h1>
 
-            <ul className="publication-list">
-              {papers.length > 0 ? (
-                papers.slice(0, 8).map((paper) => (
-                  <li key={paper._id}>
-                    {paper.formattedText || paper.content}
+    <ul
+      className="publication-list"
+      style={{
+        listStyle: "disc",
+        paddingLeft: "25px",
+        lineHeight: "1.8",
+      }}
+    >
+      {papers.length > 0 ? (
+        papers.slice(0, 8).map((paper) => (
+          <li
+            key={paper._id}
+            style={{
+              marginBottom: "20px",
+              fontSize: "18px",
+            }}
+          >
+            {paper.formattedText || paper.content}
 
-                    {paper.link && (
-                      <a
-                        href={paper.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          marginLeft: "10px",
-                          color: "#d4a017",
-                          fontWeight: "600",
-                        }}
-                      >
-                        View Paper
-                      </a>
-                    )}
-                  </li>
-                ))
-              ) : (
-                <li>No Publications Found</li>
-              )}
-            </ul>
-          </div>
-        </div>
+            {paper.link && (
+              <a
+                href={paper.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  marginLeft: "10px",
+                  color: "#d4a017",
+                  fontWeight: "600",
+                  textDecoration: "none",
+                }}
+              >
+                View Paper
+              </a>
+            )}
+          </li>
+        ))
+      ) : (
+        <li>No Publications Found</li>
+      )}
+    </ul>
+  </div>
+</div>
       </section>
 
       <section className="highlight-section">
